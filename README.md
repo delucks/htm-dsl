@@ -1,4 +1,6 @@
 <body><h1>htm-dsl</h1><p>This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.<pre>
+from pyhtml.elements import *
+
 html(
     head(title("Some webpage")),
     body(
