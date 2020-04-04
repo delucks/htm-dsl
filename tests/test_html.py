@@ -17,13 +17,7 @@ def test_body_elements():
     assert html(body('some text')) == '<html><body>some text</body></html>'
     assert html(body(h4('some text'))) == '<html><body><h4>some text</h4></body></html>'
     assert html(body(h4('title'), 'body text')) == '<html><body><h4>title</h4>body text</body></html>'
-    assert html(
-        body(
-            h4('title'),
-            br(),
-            'body text'
-        )
-    ) == '<html><body><h4>title</h4><br/>body text</body></html>'
+    assert html(body(h4('title'), br(), 'body text')) == '<html><body><h4>title</h4><br/>body text</body></html>'
 
 
 def test_sequential_element():
@@ -40,13 +34,7 @@ def test_element_arity():
 
 
 def test_complex_construction():
-    assert html(
-        head(
-            title('A more complex page')
-        ),
-        body(
-            h1('My title'),
-            h2('With a subtitle...'),
-            "and here's my body text."
-        )
-    ) == "<html><head><title>A more complex page</title></head><body><h1>My title</h1><h2>With a subtitle...</h2>and here's my body text.</body></html>"
+    assert (
+        html(head(title('A more complex page')), body(h1('My title'), h2('With a subtitle...'), "and here's my body text."))
+        == "<html><head><title>A more complex page</title></head><body><h1>My title</h1><h2>With a subtitle...</h2>and here's my body text.</body></html>"
+    )
