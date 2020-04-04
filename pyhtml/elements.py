@@ -103,7 +103,7 @@ noscript = HTMLElement('noscript')
 script = HTMLElement('script')
 
 # Demarcating edits
-del = HTMLElement('del')
+# del = HTMLElement('del')
 ins = HTMLElement('ins')
 
 # Tables

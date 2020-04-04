@@ -2,16 +2,20 @@ from typing import Union, List
 
 from pyhtml.exceptions import InvalidMarkupArity
 
+def format_attrs(**kwargs):
+    output = ''
+    for key, value in kwargs.items():
+        output += f' {key}="{value}"'
+    return output
 
 class HTMLElement:
-    def __init__(self, name: str, self_closed: bool = False, arity: int = -1):
+    def __init__(self, name: str, arity: int = -1):
         self.name = name
-        self.self_closed = self_closed
-        self.arity = 0 if self_closed else arity
+        self.arity = arity
 
-    def __call__(self, *args) -> str:
+    def __call__(self, *args, **kwargs) -> str:
         self.check_arity(*args)
-        return self.render(*args)
+        return self.render(*args, **kwargs)
 
     def check_arity(self, *args) -> None:
         if self.arity < 0:
@@ -20,14 +24,11 @@ class HTMLElement:
         if len(nested_markup) > self.arity:
             raise InvalidMarkupArity(f'Markup {" ".join(nested_markup)} is greater than arity {self.arity}')
 
-    def render(self, *args) -> str:
+    def render(self, *args, **kwargs) -> str:
         nested = ''
         for arg in args:
             if isinstance(arg, HTMLElement):
                 nested += arg()
             else:
                 nested += arg
-        if self.self_closed:
-            return f'<{self.name}/>'
-        else:
-            return f'<{self.name}>' + nested + f'</{self.name}>'
+        return f'<{self.name}{format_attrs(**kwargs)}>' + nested + f'</{self.name}>'
