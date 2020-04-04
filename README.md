@@ -1,4 +1,5 @@
-<body><h1>htm-dsl</h1><p>This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.<pre>
+<body><h1>htm-dsl</h1><p>This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.
+<pre>
 from pyhtml.elements import *
 
 html(
@@ -11,4 +12,5 @@ html(
             " functions allows you to interpolate tags in text"
         )
     )
-)</pre><br/>For an example, look at <code>README.py</code>, which generates this README!</p></body>
+)
+</pre><br/>For an example, look at <code>README.py</code>, which generates this README!</p></body>

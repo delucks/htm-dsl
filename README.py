@@ -4,8 +4,9 @@ from pyhtml import HTMLElement
 contents = body(
     h1('htm-dsl'),
     p(
-        'This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.',
-        pre("""
+        'This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.\n',
+        pre(
+            """
 from pyhtml.elements import *
 
 html(
@@ -18,12 +19,13 @@ html(
             " functions allows you to interpolate tags in text"
         )
     )
-)"""),
+)\n"""
+        ),
         br(),
         'For an example, look at ',
         code(__file__),
-        ', which generates this README!'
-    )
+        ', which generates this README!',
+    ),
 )
 
 with open('README.md', 'w') as f:
