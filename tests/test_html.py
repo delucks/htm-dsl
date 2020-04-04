@@ -35,6 +35,9 @@ def test_element_arity():
 
 def test_complex_construction():
     assert (
-        html(head(title('A more complex page')), body(h1('My title'), h2('With a subtitle...'), "and here's my body text."))
-        == "<html><head><title>A more complex page</title></head><body><h1>My title</h1><h2>With a subtitle...</h2>and here's my body text.</body></html>"
+        html(
+            head(title('A more complex page')),
+            body(h1('My title'), h2('With a subtitle...'), p("and here's my ", b("body text"), "."), hr(), "but we aren't done yet"),
+        )
+        == "<html><head><title>A more complex page</title></head><body><h1>My title</h1><h2>With a subtitle...</h2><p>and here's my <b>body text</b>.</p><hr/>but we aren't done yet</body></html>"
     )

@@ -1,4 +1,7 @@
-.PHONY = mypy black
+.PHONY = mypy black test
+
+test:
+	py.test tests/
 
 mypy:
 	mypy --disallow-untyped-calls pyhtml/

@@ -1,5 +1,6 @@
 venv/
+.mypy_cache/
+.cache/
 *.swp
 *.swo
 *.pyc
-.mypy_cache/
