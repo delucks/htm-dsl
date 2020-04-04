@@ -7,7 +7,10 @@ html(
         p(
             "Freely mixing strings with ",
             code("htm-dsl"),
-            " functions allows you to interpolate tags in text"
+            " functions allows you to interpolate tags in text.",
+            br(),
+            "Keyword arguments are used to create attributes, like ",
+            a("this!", href="https://github.com/delucks/htm-dsl")
         )
     )
-)</pre><br/>For an example, look at <code>README.py</code>, which generates this README!</p></body>
+)</pre><br></br>For an example, look at <code>README.py</code>, which generates this README!</p></body>

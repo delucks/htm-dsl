@@ -14,7 +14,10 @@ html(
         p(
             "Freely mixing strings with ",
             code("htm-dsl"),
-            " functions allows you to interpolate tags in text"
+            " functions allows you to interpolate tags in text.",
+            br(),
+            "Keyword arguments are used to create attributes, like ",
+            a("this!", href="https://github.com/delucks/htm-dsl")
         )
     )
 )"""
