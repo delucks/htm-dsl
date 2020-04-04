@@ -1,4 +1,4 @@
-.PHONY = mypy black test
+.PHONY = mypy black test readme
 
 test:
 	py.test tests/
@@ -8,3 +8,6 @@ mypy:
 
 black:
 	black -S -l 160 pyhtml tests
+
+readme:
+	python README.py

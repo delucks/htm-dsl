@@ -5,9 +5,13 @@ code = HTMLElement('code')
 
 contents = body(
     h1('htm-dsl'),
-    hr(),
-    h2('A small DSL that generates HTML from Python'),
-    p('For an example, look at ', code('README.py'), ', which generates this README!')
+    p(
+        'This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.',
+        br(),
+        'For an example, look at ',
+        code('README.py'),
+        ', which generates this README!'
+    )
 )
 
 with open('README.md', 'w') as f:
