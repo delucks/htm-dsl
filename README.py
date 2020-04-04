@@ -7,8 +7,6 @@ contents = body(
         'This is a simple DSL that generates HTML from python. Constructing a HTML document is a matter of nesting functions.\n',
         pre(
             """
-from pyhtml.elements import *
-
 html(
     head(title("Some webpage")),
     body(
@@ -19,7 +17,7 @@ html(
             " functions allows you to interpolate tags in text"
         )
     )
-)\n"""
+)"""
         ),
         br(),
         'For an example, look at ',
