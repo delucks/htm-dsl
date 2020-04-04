@@ -1,5 +1,6 @@
 import pytest
 from pyhtml.elements import *
+from pyhtml.exceptions import InvalidMarkupArity
 
 
 def test_root_element():
@@ -23,3 +24,29 @@ def test_body_elements():
             'body text'
         )
     ) == '<html><body><h4>title</h4><br/>body text</body></html>'
+
+
+def test_sequential_element():
+    assert body(h1('some'), h2('text'), h3('here')) == '<body><h1>some</h1><h2>text</h2><h3>here</h3></body>'
+
+
+def test_element_arity():
+    with pytest.raises(InvalidMarkupArity):
+        h1('some', 'shit')
+    with pytest.raises(InvalidMarkupArity):
+        br('anything')
+    with pytest.raises(InvalidMarkupArity):
+        hr('anything')
+
+
+def test_complex_construction():
+    assert html(
+        head(
+            title('A more complex page')
+        ),
+        body(
+            h1('My title'),
+            h2('With a subtitle...'),
+            "and here's my body text."
+        )
+    ) == "<html><head><title>A more complex page</title></head><body><h1>My title</h1><h2>With a subtitle...</h2>and here's my body text.</body></html>"
